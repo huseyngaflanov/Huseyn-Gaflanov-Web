@@ -102,3 +102,5 @@ document.addEventListener('keydown', (e) => {
 });
 
 loadPhotos();
+
+fetch('/api/track', { method: 'GET' });
