@@ -3,6 +3,7 @@ const fsView = document.getElementById('fs-view');
 const fsViewImage = document.getElementById('fs-view-img');
 const fsCounter = document.getElementById('fs-counter');
 const fsDownload = document.getElementById('fs-download');
+const fsNewTab = document.getElementById('fs-newtab');
 const fsSpinner = document.getElementById('fs-spinner');
 const fsExif = document.getElementById('fs-exif');
 const fsExifLoading = document.getElementById('fs-exif-loading');
@@ -144,7 +145,17 @@ function updateFS() {
 
   fsCounter.textContent = `${currentIndex + 1} / ${photos.length}`;
 
-  fsDownload.onclick = () => {
+  fsDownload.onclick = async () => {
+    const res = await fetch(url);
+    const blob = await res.blob();
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = key;
+    a.click();
+    URL.revokeObjectURL(a.href);
+  };
+
+  fsNewTab.onclick = () => {
     const a = document.createElement('a');
     a.href = url;
     a.download = key;
