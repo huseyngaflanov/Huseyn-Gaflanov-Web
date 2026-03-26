@@ -166,7 +166,19 @@
         <a href="about.html">About</a>
         <a href="projects.html">Projects</a>
       </div>
+      <button class="nav-toggle" id="nav-toggle" aria-label="Menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
     </nav>
+
+    <!-- Mobile dropdown -->
+    <div class="nav-dropdown" id="nav-dropdown">
+      <a href="photography.html">Photos</a>
+      <a href="about.html">About</a>
+      <a href="projects.html">Projects</a>
+    </div>
 
     <div class="page-header">
       <p>Selected work</p>
@@ -290,6 +302,15 @@
 
       </div>
     </main>
+
+    <script>
+      const toggle = document.getElementById('nav-toggle');
+      const dropdown = document.getElementById('nav-dropdown');
+      toggle.addEventListener('click', () => {
+        toggle.classList.toggle('open');
+        dropdown.classList.toggle('open');
+      });
+    </script>
 
   </body>
 </html>

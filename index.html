@@ -51,13 +51,25 @@
   <body>
 
     <nav>
-      <span class="nav-name">Home</span>
+      <span class="nav-name"><a href="index.html">Huseyn Gaflanov</a></span>
       <div class="nav-links">
         <a href="photography.html">Photos</a>
         <a href="about.html">About</a>
         <a href="projects.html">Projects</a>
       </div>
+      <button class="nav-toggle" id="nav-toggle" aria-label="Menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
     </nav>
+
+    <!-- Mobile dropdown -->
+    <div class="nav-dropdown" id="nav-dropdown">
+      <a href="photography.html">Photos</a>
+      <a href="about.html">About</a>
+      <a href="projects.html">Projects</a>
+    </div>
 
     <div class="hero">
       <p>Welcome</p>
@@ -94,6 +106,12 @@
     </footer>
 
     <script type="text/javascript">
+      const toggle = document.getElementById('nav-toggle');
+      const dropdown = document.getElementById('nav-dropdown');
+      toggle.addEventListener('click', () => {
+        toggle.classList.toggle('open');
+        dropdown.classList.toggle('open');
+      });
       fetch('/api/track', { method: 'GET' });
     </script>
   </body>
