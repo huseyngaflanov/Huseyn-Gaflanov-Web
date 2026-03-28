@@ -317,6 +317,8 @@
 
 .fs-btn-exif {
   display: none;
+  font-family: cursive;
+  font-weight: 500;
 }
 
 @media (max-width: 1100px) {
@@ -333,8 +335,6 @@
   }
   .fs-exif-display {
     display: flex;
-    font-family: cursive;
-    font-weight: 500;
     transition: display 1s ease;
   }
   .fs-btn-exif {
