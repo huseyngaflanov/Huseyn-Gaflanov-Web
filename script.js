@@ -177,11 +177,7 @@ function prevPhoto() {
 }
 
 function fsInfo() {
-  if (fsExif.style.display === 'none') {
-    fsExif.classList.add('fs-exif-display');
-  } else {
-    fsExif.class = 'fs-exif';
-  }
+  fsExif.classList.toggle('fs-exif-display');
 }
 
 document.addEventListener('keydown', (e) => {
