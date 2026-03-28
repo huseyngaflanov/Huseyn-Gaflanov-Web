@@ -176,6 +176,14 @@ function prevPhoto() {
   updateFS();
 }
 
+function fsInfo() {
+  if (fsExif.style.display === 'none') {
+    fsExif.classList.add('fs-exif-display');
+  } else {
+    fsExif.class = 'fs-exif';
+  }
+}
+
 document.addEventListener('keydown', (e) => {
   if (!fsView.classList.contains('open')) return;
   if (e.key === 'ArrowRight') nextPhoto();
