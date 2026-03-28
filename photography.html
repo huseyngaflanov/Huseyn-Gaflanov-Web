@@ -8,46 +8,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Alice&family=Lobster&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Playwrite+IE:wght@100..400&display=swap" rel="stylesheet">
     <title>Huseyn Gaflanov </title>
     <link rel="stylesheet" href="style.css">
-    <style>
-      .gallery-h1 {
-        text-align: center;
-        font-style: normal;
-        font-size: 4rem;
-        font-family: 'Playwrite IE', cursive;
-        font-weight: 400;
-        margin-bottom: 3rem;
-        text-shadow:
-          0 0 4px #a8d8ff,
-          0 0 12px #4db8ff,
-          0 0 30px #4db8ff,
-          0 0 60px #0088ff;
-        color: #fff;
-        animation: neon-flicker 6s step-end infinite;
-      }
-
-      @keyframes neon-flicker {
-        0%   { opacity: 1; text-shadow: 0 0 4px #fff, 0 0 12px #fff, 0 0 30px #fff, 0 0 60px #fff; }
-        2%   { opacity: 0.8; text-shadow: none; }
-        4%   { opacity: 1; text-shadow: 0 0 4px #fff, 0 0 12px #fff, 0 0 30px #fff, 0 0 60px #fff; }
-        8%   { opacity: 1; text-shadow: 0 0 4px #fff, 0 0 12px #fff, 0 0 30px #fff, 0 0 60px #fff; }
-        10%  { opacity: 0.6; text-shadow: none; }
-        11%  { opacity: 1; text-shadow: 0 0 4px #fff, 0 0 12px #fff, 0 0 30px #fff, 0 0 60px #fff; }
-        40%  { opacity: 1; text-shadow: 0 0 4px #fff, 0 0 12px #fff, 0 0 30px #fff, 0 0 60px #fff; }
-        42%  { opacity: 0; text-shadow: none; }
-        43%  { opacity: 1; text-shadow: 0 0 4px #fff, 0 0 12px #fff, 0 0 30px #fff, 0 0 60px #fff; }
-        44%  { opacity: 0; text-shadow: none; }
-        45%  { opacity: 1; text-shadow: 0 0 4px #fff, 0 0 12px #fff, 0 0 30px #fff, 0 0 60px #fff; }
-        70%  { opacity: 1; text-shadow: 0 0 4px #fff, 0 0 12px #fff, 0 0 30px #fff, 0 0 60px #fff; }
-        72%  { opacity: 0; text-shadow: none; }
-        73%  { opacity: 1; text-shadow: 0 0 4px #fff, 0 0 12px #fff, 0 0 30px #fff, 0 0 60px #fff; }
-        100% { opacity: 1; text-shadow: 0 0 4px #fff, 0 0 12px #fff, 0 0 30px #fff, 0 0 60px #fff; }
-      }
-
-      .neon-text {
-        color: #fff;
-        animation: neon-flicker 6s step-end infinite;
-      }
-    </style>
+    <link rel="stylesheet" href="/syle/photos.css">
   </head>
   <body>
 
@@ -92,6 +53,7 @@
             <button class="fs-btn fs-btn-close" onclick="closeFS()">&#x2715;</button>
             <button class="fs-btn fs-btn-download" id="fs-download">&#8595; Download</button>
             <button class="fs-btn fs-btn-newtab" id="fs-newtab">↗</button>
+            <button class="fs-btn fs-hidden" id="fs-info" onclick="fsInfo()">&#8505;</button>
             <button class="fs-btn" id="fs-next" onclick="nextPhoto()">&#8594;</button>
           </div>
           <div class="fs-counter" id="fs-counter"></div>
@@ -137,6 +99,15 @@
         toggle.classList.toggle('open');
         dropdown.classList.toggle('open');
       });
+
+      const fsExif = document.getElementById('fs-exif');
+      function fsInfo() {
+        if (fsExif.style.display === 'none') {
+          fsExif.classList.add('fs-exif-display');
+        } else {
+          fsExif.class = 'fs-exif';
+        }
+      }
     </script>
 
     <script src="https://cdn.jsdelivr.net/npm/exifr@7/dist/full.esm.js" type="module" id="exifr-script"></script>
