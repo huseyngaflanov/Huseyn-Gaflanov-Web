@@ -315,7 +315,11 @@
   justify-content: center;
 }
 
-@media (max-width: 1200px) {
+.fs-btn-exif {
+  display: none;
+}
+
+@media (max-width: 1100px) {
   .fs-exif {
     position: static;
     transform: none;
@@ -330,6 +334,9 @@
   .fs-exif-display {
     display: flex;
     transition: display 1s ease;
+  }
+  .fs-btn-exif {
+    display: block;
   }
   .fs-exif-title {
     width: 100%;

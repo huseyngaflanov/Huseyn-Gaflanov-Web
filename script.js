@@ -145,23 +145,23 @@ function updateFS() {
 
   fsCounter.textContent = `${currentIndex + 1} / ${photos.length}`;
 
-  fsDownload.onclick = async () => {
-    const res = await fetch(url);
-    const blob = await res.blob();
-    const a = document.createElement('a');
-    a.href = URL.createObjectURL(blob);
-    a.download = key;
-    a.click();
-    URL.revokeObjectURL(a.href);
-  };
-
-  fsNewTab.onclick = () => {
+  fsDownload.onclick = () => {
     const a = document.createElement('a');
     a.href = url;
     a.download = key;
     a.target = '_blank';
     a.click();
   };
+
+  // .onclick = async () => {
+  //   const res = await fetch(url);
+  //   const blob = await res.blob();
+  //   const a = document.createElement('a');
+  //   a.href = URL.createObjectURL(blob);
+  //   a.download = key;
+  //   a.click();
+  //   URL.revokeObjectURL(a.href);
+  // };
 
   loadExif(url);
 }
