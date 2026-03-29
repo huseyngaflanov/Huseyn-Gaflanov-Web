@@ -148,7 +148,6 @@ nav {
   -webkit-backdrop-filter: blur(16px);
   border-bottom: 1px solid var(--border);
   flex-direction: column;
-  padding: 0.5rem 0;
   z-index: 99;
 }
 
@@ -451,6 +450,42 @@ footer {
 }
 
 .footer-icons svg {
+  width: 16px;
+  height: 16px;
+  fill: currentColor;
+}
+
+@media (max-width: 600px) {
+  .footer-copy {
+    text-align: center;
+    padding: 0.5rem 2rem;
+  }
+  .footer-copy span { display: none; }
+  .footer-icons { display: none; }
+  footer {
+    justify-content: center;
+    height: auto;
+  }
+}
+
+.mobile-footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  gap: 0;
+  border-bottom: 0.5px solid var(--border);
+}
+
+.mobile-footer a {
+  border-bottom: none;
+  border-left: 0.5px solid var(--border);
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.mobile-footer svg {
   width: 16px;
   height: 16px;
   fill: currentColor;
