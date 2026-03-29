@@ -12,6 +12,7 @@
   --muted: #666;
   --accent: #fff;
   --nav-h: 60px;
+  --basketball: #fc7f12;
 }
 
 html, body {
@@ -82,6 +83,17 @@ nav {
 
 .nav-links a:hover {
   color: var(--text);
+}
+
+.nav-links a.nav-basketball:hover {
+  color: var(--basketball);
+  text-shadow:
+    0 0 7px var(--basketball),
+    0 0 10px var(--basketball),
+    0 0 21px var(--basketball),
+    0 0 42px var(--basketball),
+    0 0 82px var(--basketball),
+    0 0 92px var(--basketball);
 }
 
 /* HAMBURGER BUTTON (navigation) */
