@@ -8,10 +8,110 @@
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles/style.css">
     <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="styles/intro.css">
     <link rel="icon" href="src/favicon.ico">
     <title>Huseyn Gaflanov</title>
   </head>
   <body>
+
+    <div id="grain"></div>
+    <div id="ot"></div>
+    <div id="ob"></div>
+
+    <div id="st">
+    <svg id="main" viewBox="0 0 500 490" width="500" height="490" xmlns="http://www.w3.org/2000/svg">
+
+      <!-- ── MUSIC: audio waveform, splits around H ── -->
+      <path fill="none" stroke="#1d1d1d" stroke-width="0.85"
+        d="M0,232 Q18,218 36,232 Q54,246 72,232 Q90,218 110,232 Q128,248 148,220 Q158,210 168,218
+           M332,218 Q342,210 352,220 Q372,248 390,232 Q408,218 428,232 Q448,246 466,232 Q484,218 500,232"/>
+
+      <!-- ── PHOTOGRAPHY: outer lens ring ── -->
+      <circle id="lens" cx="250" cy="232" r="180" fill="none" stroke="#252525" stroke-width="1"/>
+
+      <!-- ── PHOTOGRAPHY: aperture cross-hairs ── -->
+      <line class="aBladeH" id="aH" x1="70" y1="232" x2="430" y2="232"/>
+      <line class="aBladeV" id="aV" x1="250" y1="52" x2="250" y2="412"/>
+
+      <!-- ── PHOTOGRAPHY: inner focus ring (dashed, rotates) ── -->
+      <circle id="fRing" cx="250" cy="232" r="163" fill="none" stroke="#1c1c1c" stroke-width="0.75" stroke-dasharray="5 16"/>
+
+      <!-- ── H strokes ── -->
+      <line id="sL" class="hs" x1="185" y1="122" x2="185" y2="342"/>
+      <line id="sR" class="hs" x1="315" y1="122" x2="315" y2="342"/>
+      <line id="sX" class="hs" x1="185" y1="232" x2="315" y2="232"/>
+
+      <!-- Leading dots -->
+      <circle id="tL" r="4.5" fill="#dedede" cx="185" cy="122" opacity="0"/>
+      <circle id="tR" r="4.5" fill="#dedede" cx="315" cy="122" opacity="0"/>
+      <circle id="tX" r="4.5" fill="#dedede" cx="185" cy="232" opacity="0"/>
+
+      <!-- ── PHOTOGRAPHY: viewfinder corner brackets ── -->
+      <line id="bTLh" x1="168" y1="106" x2="144" y2="106" stroke="#333" stroke-width="1.5" stroke-linecap="square" opacity="0"/>
+      <line id="bTLv" x1="144" y1="106" x2="144" y2="130" stroke="#333" stroke-width="1.5" stroke-linecap="square" opacity="0"/>
+      <line id="bTRh" x1="332" y1="106" x2="356" y2="106" stroke="#333" stroke-width="1.5" stroke-linecap="square" opacity="0"/>
+      <line id="bTRv" x1="356" y1="106" x2="356" y2="130" stroke="#333" stroke-width="1.5" stroke-linecap="square" opacity="0"/>
+      <line id="bBLh" x1="168" y1="358" x2="144" y2="358" stroke="#333" stroke-width="1.5" stroke-linecap="square" opacity="0"/>
+      <line id="bBLv" x1="144" y1="358" x2="144" y2="334" stroke="#333" stroke-width="1.5" stroke-linecap="square" opacity="0"/>
+      <line id="bBRh" x1="332" y1="358" x2="356" y2="358" stroke="#333" stroke-width="1.5" stroke-linecap="square" opacity="0"/>
+      <line id="bBRv" x1="356" y1="358" x2="356" y2="334" stroke="#333" stroke-width="1.5" stroke-linecap="square" opacity="0"/>
+
+      <!-- Crossbar pulse lines -->
+      <line id="plL" x1="185" y1="232" x2="185" y2="232" stroke="#3a3a3a" stroke-width="1" opacity="0"/>
+      <line id="plR" x1="315" y1="232" x2="315" y2="232" stroke="#3a3a3a" stroke-width="1" opacity="0"/>
+
+      <!-- ── PHOTOGRAPHY: exposure data ── -->
+      <text id="exT" x="250" y="48" text-anchor="middle"
+        font-family="'Courier New',monospace" font-size="9" fill="#2c2c2c" letter-spacing="2" opacity="0">
+        f / 1.8  ·  1/250s  ·  ISO 400
+      </text>
+
+      <!-- PHOTOGRAPHY: lock confirm -->
+      <text id="lkT" x="250" y="66" text-anchor="middle"
+        font-family="'Courier New',monospace" font-size="7.5" fill="#292929" letter-spacing="3.5" opacity="0">
+        [ AF  LOCK ]
+      </text>
+
+      <!-- ── BASKETBALL: shot clock ── -->
+      <text id="sclLbl" x="460" y="40" text-anchor="end"
+        font-family="'Courier New',monospace" font-size="7" fill="#202020" letter-spacing="2.5" opacity="0">
+        SHOT CLOCK
+      </text>
+      <text id="sclNum" x="460" y="70" text-anchor="end"
+        font-family="'Courier New',monospace" font-size="28" fill="#2e2e2e" opacity="0">
+        24
+      </text>
+
+      <!-- BASKETBALL: jersey number (ghost, large) -->
+      <text id="jersey" x="462" y="462" text-anchor="end"
+        font-family="'Helvetica Neue',Helvetica,sans-serif" font-size="60" fill="#181818" font-weight="800" opacity="0">
+        #18
+      </text>
+
+      <!-- ── MUSIC: EQ bars (7 bars, bottom center, base y=442) ── -->
+      <rect id="eq1" x="198" y="432" width="7" height="10" fill="#2b2b2b" rx="1" opacity="0"/>
+      <rect id="eq2" x="211" y="427" width="7" height="15" fill="#2b2b2b" rx="1" opacity="0"/>
+      <rect id="eq3" x="224" y="430" width="7" height="12" fill="#2b2b2b" rx="1" opacity="0"/>
+      <rect id="eq4" x="237" y="424" width="7" height="18" fill="#2f2f2f" rx="1" opacity="0"/>
+      <rect id="eq5" x="250" y="428" width="7" height="14" fill="#2b2b2b" rx="1" opacity="0"/>
+      <rect id="eq6" x="263" y="425" width="7" height="17" fill="#2b2b2b" rx="1" opacity="0"/>
+      <rect id="eq7" x="276" y="431" width="7" height="11" fill="#2b2b2b" rx="1" opacity="0"/>
+
+      <!-- MUSIC: BPM readout -->
+      <text id="bpmT" x="42" y="438" text-anchor="start"
+        font-family="'Courier New',monospace" font-size="8" fill="#222" letter-spacing="2" opacity="0">
+        ♩ 128 BPM
+      </text>
+
+      <!-- PHOTOGRAPHY: frame counter -->
+      <text id="frmT" x="42" y="454" text-anchor="start"
+        font-family="'Courier New',monospace" font-size="7.5" fill="#1e1e1e" letter-spacing="2" opacity="0">
+        ● REC  FRAME 0001
+      </text>
+
+    </svg>
+    </div>
+    <script src="scripts/intro.js" charset="utf-8"></script>
 
     <nav>
       <span class="nav-name"><a href="index.html">Huseyn Gaflanov</a></span>
@@ -52,7 +152,6 @@
           <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"/></svg>
         </a>
       </div>
-      <a href="#" style="text-transform: none; padding: 0.5rem 2rem; text-align: center; font-size: 0.6rem;">Huseyn Gaflanov &mdash; All rights reserved.</a>
     </div>
 
     <main>
@@ -109,7 +208,7 @@
       });
       setTimeout(() => {
         document.getElementById('main-video-bg').classList.add('visible');
-      }, 3000);
+      }, 6000);
       fetch('/api/track', { method: 'GET' });
     </script>
   </body>

@@ -1,0 +1,60 @@
+#grain{
+  position:fixed;inset:0;z-index:10002;pointer-events:none;opacity:0.042;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)'/%3E%3C/svg%3E");
+  animation:gs 0.08s steps(1) infinite;
+}
+@keyframes gs{
+  0%{background-position:0 0}12%{background-position:-40px -80px}24%{background-position:60px 30px}
+  36%{background-position:-80px 20px}48%{background-position:30px -60px}60%{background-position:-100px 70px}
+  72%{background-position:70px -40px}84%{background-position:-20px 100px}100%{background-position:100px -80px}
+}
+
+#ot,#ob{
+  position:fixed;left:0;right:0;background:#0d0d0d;z-index:9998;
+  transition:transform 1.05s cubic-bezier(0.76,0,0.24,1);
+}
+#ot{top:0;height:50%;}
+#ob{bottom:0;height:50%;}
+#ot.exit{transform:translateY(-100%);}
+#ob.exit{transform:translateY(100%);}
+
+#st{
+  position:fixed;inset:0;display:flex;align-items:center;justify-content:center;
+  z-index:9999;pointer-events:none;transition:opacity 0.3s ease;
+}
+#st.exit{opacity:0;}
+
+/* H strokes */
+.hs{fill:none;stroke:#b8b8b8;stroke-width:5.5;stroke-linecap:square;}
+#sL,#sR{stroke-dasharray:222;stroke-dashoffset:222;}
+#sX{stroke-dasharray:132;stroke-dashoffset:132;}
+.dSeg{animation:dSeg var(--d,600ms) cubic-bezier(0.4,0,0.2,1) forwards;}
+@keyframes dSeg{to{stroke-dashoffset:0;}}
+
+/* Lens ring */
+#lens{stroke-dasharray:1131;stroke-dashoffset:1131;}
+.lGo{animation:lIn 1.2s cubic-bezier(0.35,0,0.15,1) forwards;}
+@keyframes lIn{to{stroke-dashoffset:0;}}
+
+/* Focus ring spin */
+#fRing{
+  transform-box:fill-box;transform-origin:50% 50%;
+  animation:fSpin 18s linear infinite;opacity:0;
+  transition:opacity 1.5s ease;
+}
+@keyframes fSpin{to{transform:rotate(360deg);}}
+
+/* Aperture blades (4 crossing lines) */
+.aBladeH,.aBladeV{
+  stroke:#1e1e1e;stroke-width:0.5;
+  opacity:0;transition:opacity 1.2s ease;
+}
+
+/* Page */
+#pg{
+  display:flex;align-items:center;justify-content:center;height:100vh;
+  opacity:0;transition:opacity 0.9s ease 0.1s;
+  color:#bbb;font-family:'Helvetica Neue',Helvetica,sans-serif;
+}
+#pg.on{opacity:1;}
+#pg h1{font-weight:200;letter-spacing:0.42em;font-size:clamp(1rem,3vw,2.2rem);text-transform:uppercase;}
